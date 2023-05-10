@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="node_modules/bootstrap-social/bootstrap-social.css">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>Ristorante Con Fusion</title>
 </head>
 
@@ -50,7 +51,7 @@
                 </ul>
             </div>
             <span class="navbar-text" id="navLoginBtn">
-                <a data-bs-toggle="modal" data-bs-target="#loginModal">
+                <a>
                 <span class="fa fa-sign-in"></span> Login</a>
             </span>
         </div>
@@ -62,18 +63,18 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title">Login </h4>
-                    <i class="fa fa-close" data-bs-dismiss="modal" type="button"></i>
+                    <i id="closeLoginModal" class="fa fa-close" type="button"></i>
                     <!-- <button type="button" class="close" data-bs-dismiss="modal">&times;</button> -->
                 </div>
                 <div class="modal-body">
-                    <form>
-                        <div class="form-row">
+                    <form id="loginForm">
+                        <div class="form-row formRow1">
                             <div class="form-group col-sm-4">
-                                    <label class="sr-only" for="exampleInputEmail3">Email address</label>
+                                    <!-- <label class="sr-only" for="exampleInputEmail3">Email address</label> -->
                                     <input type="email" class="form-control form-control-sm mr-1" id="exampleInputEmail3" placeholder="Enter email">
                             </div>
                             <div class="form-group col-sm-4">
-                                <label class="sr-only" for="exampleInputPassword3">Password</label>
+                                <!-- <label class="sr-only" for="exampleInputPassword3">Password</label> -->
                                 <input type="password" class="form-control form-control-sm mr-1" id="exampleInputPassword3" placeholder="Password">
                             </div>
                             <div class="col-sm-auto">
@@ -84,8 +85,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-row">
-                            <button type="button" class="btn btn-secondary btn-sm ml-auto" data-bs-dismiss="modal">Cancel</button>
+                        <div class="form-row formRow2">
+                            <button id="loginCancelButton" type="button" class="btn btn-secondary btn-sm ml-auto">Cancel</button>
                             <button type="submit" class="btn btn-primary btn-sm ml-1">Sign in</button>        
                         </div>
                     </form>
@@ -100,11 +101,11 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title">Reserve a Table</h4>
-                    <i class="fa fa-close" data-bs-dismiss="modal" type="button"></i>
+                    <i id="closeReservationModal" class="fa fa-close" data-bs-dismiss="modal" type="button"></i>
                     <!-- <button type="button" class="close" data-bs-dismiss="modal">&times;</button> -->
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form id="reservationForm">
                         <div class="form-group row my-3">
                             <label for="noofguest" class="col-md-2 col-form-label">Number of Guests</label>
                             <div class="col-md">
@@ -161,8 +162,8 @@
                             </div>
                         </div>
                         <div class="form-group row mb-3">
-                            <div class="offset-md-2 col-md-10">
-                                <button type="button" class="btn btn-secondary btn-sm ml-auto" data-bs-dismiss="modal">Cancel</button>
+                            <div class="offset-md-2 col-md-10 formRow2">
+                                <button id="reservationCancelButton" type="button" class="btn btn-secondary btn-sm ml-auto">Cancel</button>
                                 <button type="submit" class="btn btn-primary btn-sm ml-1">Reserve</button>
                             </div>
                         </div>
@@ -184,8 +185,8 @@
                     <img src="img/logo.png" class="img-fluid">
                 </div>
                 <div class="col-12 col-sm align-self-center">
-                    <a data-bs-toggle="modal" data-bs-target="#reserveModal">
-                        <button type="button" class="btn btn-warning btn-block">Reserve Table</button>
+                    <a>
+                        <button type="button" class="btn btn-warning btn-block" id="reserveButton">Reserve Table</button>
                     </a>
                 </div>
             </div>
@@ -454,6 +455,26 @@
                     $("#carouselButton").children("span").addClass('fa-pause');                    
                 }
             });
+
+            function loginToggle() {
+                $('#loginModal').modal('toggle');
+            }
+            function reservationToggle() {
+                $('#reserveModal').modal('toggle');
+            }
+            // Login Modal Toggle
+            $('#navLoginBtn').click(loginToggle);
+
+            $('#closeLoginModal').click(loginToggle);
+
+            $('#loginCancelButton').click(loginToggle);
+
+            // Reservation Modal Toggle
+            $('#reserveButton').click(reservationToggle);
+
+            $('#closeReservationModal').click(reservationToggle);
+
+            $('#reservationCancelButton').click(reservationToggle);
         });
     </script>
 </body>

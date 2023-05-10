@@ -1,0 +1,41 @@
+$lt-gray: #ddd;
+$background-dark: #512da8;
+$background-light: #9575cd;
+$background-pale: #d1c4e9;
+$floral-white: floralwhite;
+
+@mixin header-style {
+  background-color: $background-dark;
+  color: $floral-white;
+}
+.modal-header {
+  @include header-style();
+}
+
+.modal-body {
+  background-color: $background-pale;
+}
+
+#loginForm {
+  .formRow1 {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .formRow2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+}
+
+#reservationForm {
+  .formRow2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+}
